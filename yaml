@@ -1,0 +1,18 @@
+(ansible module to install package)
+$ sudo vi nginix-install.yml
+--- 
+- 
+  become: true
+  hosts: all
+  name: "nginx install & start services"
+  tasks: 
+    - 
+      name: "install nginx"
+      yum: 
+        name: nginx
+        state: latest
+    - 
+      name: "start nginx"
+      service: 
+        name: ngnix
+        state: started
